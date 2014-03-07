@@ -36,12 +36,12 @@ object TestNGPlugin extends Plugin with Keys {
     testNGSuites := Seq(((resourceDirectory in Test).value / "testng.yaml").absolutePath),
 
     libraryDependencies ++= Seq(
-      "org.testng" % "testng" % testNGVersion.value % "test->default",
-      "de.johoop" %% "sbt-testng-interface" % "3.0.0" % "test"),
+      "org.testng" % "testng" % testNGVersion.value % "it->default",
+      "de.johoop" %% "sbt-testng-interface" % "3.0.0" % "it"),
     
     testFrameworks += TestNGFrameworkID,
 
-    testOptions += 
+    testOptions in IntegrationTest += 
       Tests.Argument(TestNGFrameworkID, 
         (("-d" +: testNGOutputDirectory.value +: testNGParameters.value) ++ testNGSuites.value):_*))
     

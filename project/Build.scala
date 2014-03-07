@@ -18,7 +18,7 @@ object TestNGPluginBuild extends Build {
     base = file("plugin"),
     settings = Project.defaultSettings ++ commonSettings ++ Seq(
       sbtPlugin := true,
-      version := "3.0.0",
+      version := "3.0.1",
       crossScalaVersions := Seq("2.10.3"),
       scalacOptions += "-language:_"))
 
